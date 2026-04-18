@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Como Você Ouve as Pessoas? — Mind Gym</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header>
+  <div class="banner-inner">
+    <div class="banner-tag">Mind Gym</div>
+    <h1>Como Você Ouve as Pessoas?</h1>
+    <div class="banner-sub">Descoberta de Filtros de Escuta — Liderança Consciente</div>
+  </div>
+  <div class="gold-bar"></div>
+</header>
+
+<div class="container">
+  <div class="tabs">
+    <button class="tab-btn active" onclick="showTab('quiz', this)">Questionário</button>
+    <button class="tab-btn" onclick="showTab('results', this)">Resultados dos Candidatos</button>
+  </div>
+
+  <!-- QUIZ PANEL -->
+  <div id="panel-quiz" class="panel active">
+    <div id="quiz-content">
+      <div class="intro-box">
+        <p>A audição pura está no centro da boa liderança. Muitas vezes filtramos o que pode ser extremamente útil ou extremamente prejudicial, dependendo de quais filtros usamos e quando.</p>
+        <p>Para identificar seu filtro natural, preencha de forma honesta o pequeno questionário a seguir, escolhendo a opção mais precisa para cada pergunta.</p>
+      </div>
+
+      <div class="field-group">
+        <label>Seu nome <span>*</span></label>
+        <input type="text" id="candidato-nome" placeholder="Digite seu nome completo" />
+      </div>
+
+      <form id="quiz-form" onsubmit="submitQuiz(event)">
+
+        <!-- Q1 -->
+        <div class="question-card">
+          <div class="question-text">1) Seu parceiro tem uma reunião durante o café da manhã e dorme além da conta. Ele diz "Nunca chegarei a tempo". Você rebate:</div>
+          <div class="options">
+            <label class="option-label"><input type="radio" name="q1" value="A" onchange="selectOpt(this)" /> <span><b>A.</b> É ridículo marcar uma reunião tão cedo</span></label>
+            <label class="option-label"><input type="radio" name="q1" value="B" onchange="selectOpt(this)" /> <span><b>B.</b> Que maneira de começar o dia</span></label>
+            <label class="option-label"><input type="radio" name="q1" value="C" onchange="selectOpt(this)" /> <span><b>C.</b> Como pode ter tanta certeza de que não chegará a tempo?</span></label>
+            <label class="option-label"><input type="radio" name="q1" value="D" onchange="selectOpt(this)" /> <span><b>D.</b> O que é necessário para chegar lá a tempo?</span></label>
+          </div>
+        </div>
+
+        <!-- Q2 -->
+        <div class="question-card">
+          <div class="question-text">2) A venda da casa de um amigo fracassa pela segunda vez. Ele diz: "Por que isso sempre acontece comigo?" Você responde:</div>
+          <div class="options">
+            <label class="option-label"><input type="radio" name="q2" value="B" onchange="selectOpt(this)" /> <span><b>B.</b> Você deve estar se sentindo muito frustrado</span></label>
+            <label class="option-label"><input type="radio" name="q2" value="A" onchange="selectOpt(this)" /> <span><b>A.</b> Foi só uma falta de sorte</span></label>
+            <label class="option-label"><input type="radio" name="q2" value="C" onchange="selectOpt(this)" /> <span><b>C.</b> Como é que duas vezes se torna sempre?</span></label>
+            <label class="option-label"><input type="radio" name="q2" value="D" onchange="selectOpt(this)" /> <span><b>D.</b> Como você pode evitar que isso aconteça novamente?</span></label>
+          </div>
+        </div>
+
+        <!-- Q3 -->
+        <div class="question-card">
+          <div class="question-text">3) Seu ponto forte é:</div>
+          <div class="options">
+            <label class="option-label"><input type="radio" name="q3" value="D" onchange="selectOpt(this)" /> <span><b>D.</b> Resolução de problemas</span></label>
+            <label class="option-label"><input type="radio" name="q3" value="A" onchange="selectOpt(this)" /> <span><b>A.</b> Entusiasmo</span></label>
+            <label class="option-label"><input type="radio" name="q3" value="B" onchange="selectOpt(this)" /> <span><b>B.</b> Empatia</span></label>
+            <label class="option-label"><input type="radio" name="q3" value="C" onchange="selectOpt(this)" /> <span><b>C.</b> Honestidade</span></label>
+          </div>
+        </div>
+
+        <!-- Q4 -->
+        <div class="question-card">
+          <div class="question-text">4) Mais uma vez um colega não é considerado para uma promoção. Ele diz: "Acho que o chefe não gosta de mim". Você fala:</div>
+          <div class="options">
+            <label class="option-label"><input type="radio" name="q4" value="D" onchange="selectOpt(this)" /> <span><b>D.</b> Como você pode fazer para melhorar seu perfil e ser admirado por ele?</span></label>
+            <label class="option-label"><input type="radio" name="q4" value="A" onchange="selectOpt(this)" /> <span><b>A.</b> Que injustiça da parte dele colocar a preferência pessoal sobre a capacidade profissional</span></label>
+            <label class="option-label"><input type="radio" name="q4" value="B" onchange="selectOpt(this)" /> <span><b>B.</b> Posso compreender o quanto você está se sentindo decepcionado</span></label>
+            <label class="option-label"><input type="radio" name="q4" value="C" onchange="selectOpt(this)" /> <span><b>C.</b> Que comprovação você tem de que seu chefe não gosta de você?</span></label>
+          </div>
+        </div>
+
+        <!-- Q5 -->
+        <div class="question-card">
+          <div class="question-text">5) Um amigo convida alguém para sair e é rejeitado. Ele reclama: "Sou um tremendo fracassado." Você diz:</div>
+          <div class="options">
+            <label class="option-label"><input type="radio" name="q5" value="A" onchange="selectOpt(this)" /> <span><b>A.</b> Ela não sabe o que está perdendo</span></label>
+            <label class="option-label"><input type="radio" name="q5" value="B" onchange="selectOpt(this)" /> <span><b>B.</b> Você parece realmente desapontado</span></label>
+            <label class="option-label"><input type="radio" name="q5" value="C" onchange="selectOpt(this)" /> <span><b>C.</b> Como é que uma rejeição torna você um fracassado?</span></label>
+            <label class="option-label"><input type="radio" name="q5" value="D" onchange="selectOpt(this)" /> <span><b>D.</b> E se talvez você chamasse outra pessoa?</span></label>
+          </div>
+        </div>
+
+        <!-- Q6 -->
+        <div class="question-card">
+          <div class="question-text">6) Os outros são mais propensos a descrevê-lo como:</div>
+          <div class="options">
+            <label class="option-label"><input type="radio" name="q6" value="C" onchange="selectOpt(this)" /> <span><b>C.</b> Realista</span></label>
+            <label class="option-label"><input type="radio" name="q6" value="A" onchange="selectOpt(this)" /> <span><b>A.</b> Leal</span></label>
+            <label class="option-label"><input type="radio" name="q6" value="B" onchange="selectOpt(this)" /> <span><b>B.</b> Compreensivo</span></label>
+            <label class="option-label"><input type="radio" name="q6" value="D" onchange="selectOpt(this)" /> <span><b>D.</b> Útil</span></label>
+          </div>
+        </div>
+
+        <!-- Q7 -->
+        <div class="question-card">
+          <div class="question-text">7) Um amigo seu está procurando emprego há meses sem sucesso. Ele diz: "Nunca vou encontrar um emprego." Você rebate:</div>
+          <div class="options">
+            <label class="option-label"><input type="radio" name="q7" value="A" onchange="selectOpt(this)" /> <span><b>A.</b> O mercado de trabalho está impossível</span></label>
+            <label class="option-label"><input type="radio" name="q7" value="B" onchange="selectOpt(this)" /> <span><b>B.</b> Você deve estar se sentindo muito frustrado</span></label>
+            <label class="option-label"><input type="radio" name="q7" value="C" onchange="selectOpt(this)" /> <span><b>C.</b> Você acredita que seu pessimismo o ajudará a encontrar o emprego?</span></label>
+            <label class="option-label"><input type="radio" name="q7" value="D" onchange="selectOpt(this)" /> <span><b>D.</b> Qual será o seu próximo passo?</span></label>
+          </div>
+        </div>
+
+        <!-- Q8 -->
+        <div class="question-card">
+          <div class="question-text">8) Seu amigo fala: "Realmente preciso perder alguns quilos." Você diz:</div>
+          <div class="options">
+            <label class="option-label"><input type="radio" name="q8" value="B" onchange="selectOpt(this)" /> <span><b>B.</b> Você parece aborrecido consigo mesmo</span></label>
+            <label class="option-label"><input type="radio" name="q8" value="A" onchange="selectOpt(this)" /> <span><b>A.</b> Você está ótimo dessa forma</span></label>
+            <label class="option-label"><input type="radio" name="q8" value="C" onchange="selectOpt(this)" /> <span><b>C.</b> Por que você precisa emagrecer?</span></label>
+            <label class="option-label"><input type="radio" name="q8" value="D" onchange="selectOpt(this)" /> <span><b>D.</b> Como você planeja emagrecer?</span></label>
+          </div>
+        </div>
+
+        <!-- Q9 -->
+        <div class="question-card">
+          <div class="question-text">9) Um amigo conta para você que o novo gerente é excepcionalmente rude. Você diz:</div>
+          <div class="options">
+            <label class="option-label"><input type="radio" name="q9" value="A" onchange="selectOpt(this)" /> <span><b>A.</b> Entendo o que quer dizer</span></label>
+            <label class="option-label"><input type="radio" name="q9" value="B" onchange="selectOpt(this)" /> <span><b>B.</b> Parece que você não gosta muito dele</span></label>
+            <label class="option-label"><input type="radio" name="q9" value="C" onchange="selectOpt(this)" /> <span><b>C.</b> Ele está começando. Já deu a ele uma chance?</span></label>
+            <label class="option-label"><input type="radio" name="q9" value="D" onchange="selectOpt(this)" /> <span><b>D.</b> O que você pode fazer para conviver com ele?</span></label>
+          </div>
+        </div>
+
+        <!-- Q10 -->
+        <div class="question-card">
+          <div class="question-text">10) Um bom amigo:</div>
+          <div class="options">
+            <label class="option-label"><input type="radio" name="q10" value="D" onchange="selectOpt(this)" /> <span><b>D.</b> Ajuda você a resolver os problemas</span></label>
+            <label class="option-label"><input type="radio" name="q10" value="A" onchange="selectOpt(this)" /> <span><b>A.</b> É um líder de torcida pessoal</span></label>
+            <label class="option-label"><input type="radio" name="q10" value="B" onchange="selectOpt(this)" /> <span><b>B.</b> É sempre um ombro para chorar</span></label>
+            <label class="option-label"><input type="radio" name="q10" value="C" onchange="selectOpt(this)" /> <span><b>C.</b> Diz a verdade</span></label>
+          </div>
+        </div>
+
+        <div id="form-error" class="error-msg" style="display:none;"></div>
+
+        <div class="submit-wrap">
+          <button type="submit" class="submit-btn">Enviar Respostas</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- SUCCESS + CHART -->
+    <div id="quiz-success" style="display:none; max-width:560px; margin:0 auto; padding:32px 16px;">
+      <div style="text-align:center; margin-bottom:24px;">
+        <div style="display:inline-flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:50%;background:#1a3a6b;margin-bottom:12px;">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <h2 id="success-name" style="font-size:22px;font-weight:bold;color:#1a3a6b;margin-bottom:4px;"></h2>
+        <p style="font-size:13px;color:#6b7280;font-family:Arial,sans-serif;">Suas respostas foram enviadas com sucesso.</p>
+      </div>
+
+      <div style="background:#1a3a6b;border-radius:12px;overflow:hidden;box-shadow:0 4px 20px rgba(26,58,107,0.3);">
+        <div style="padding:16px 24px;border-bottom:1px solid rgba(255,255,255,0.1);text-align:center;">
+          <p style="color:#d4a017;font-size:11px;font-weight:bold;letter-spacing:3px;text-transform:uppercase;font-family:Arial,sans-serif;">
+            Qual é o seu total para cada letra?
+          </p>
+        </div>
+        <div style="padding:24px 24px 8px;">
+          <div id="chart-bars" style="display:flex;align-items:flex-end;justify-content:center;gap:24px;height:200px;"></div>
+        </div>
+        <div style="padding:0 24px 20px;text-align:center;">
+          <div style="display:inline-block;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:8px;padding:10px 20px;">
+            <p style="color:#d4a017;font-size:10px;font-weight:bold;letter-spacing:2px;text-transform:uppercase;font-family:Arial,sans-serif;margin-bottom:4px;">Seu filtro dominante</p>
+            <p id="dominant-label" style="color:#fff;font-weight:bold;font-size:15px;font-family:Arial,sans-serif;"></p>
+          </div>
+        </div>
+      </div>
+
+      <div id="filter-desc-box" style="margin-top:16px;background:#fff;border:1px solid rgba(26,58,107,0.2);border-radius:10px;padding:16px 20px;box-shadow:0 1px 4px rgba(0,0,0,0.06);">
+        <p id="filter-desc-text" style="font-size:14px;color:#444;line-height:1.7;font-family:Arial,sans-serif;"></p>
+      </div>
+
+      <div style="text-align:center;margin-top:24px;">
+        <button onclick="goToResults()" style="background:#1a3a6b;color:#fff;font-size:14px;font-weight:bold;font-family:Arial,sans-serif;padding:10px 32px;border:2px solid #d4a017;border-radius:6px;cursor:pointer;">
+          Ver todos os resultados
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- RESULTS PANEL -->
+  <div id="panel-results" class="panel">
+    <div class="results-header">
+      <h2>Resultados dos Candidatos</h2>
+      <p id="results-count">Carregando...</p>
+    </div>
+    <div id="results-list"></div>
+  </div>
+</div>
+
+<footer>
+  <span>Mind Gym</span> — Como Você Ouve as Pessoas?
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
